@@ -1,0 +1,34 @@
+.navbar {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    border-bottom: 2px solid black;
+    background-color: white;
+    padding: 10px 5px;
+}
+
+.navbar__links {
+    display: flex;
+}
+
+.navbar__links-item {
+    list-style-type: none;
+}
+
+
+.navbar__links-item a {
+    text-decoration: none;
+    color: #252538;
+}
+
+.navbar__links-item a:hover,
+.navbar__links-item a:focus {
+    color: #2525383e;
+}   
+
+.navbar__links-item:first-child a {
+    margin-right: 40px;
+    margin-left: 40px;
+}
