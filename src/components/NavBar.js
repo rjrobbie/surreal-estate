@@ -9,7 +9,7 @@ const NavBar = () => {
        <Link className="item" to="/"><img src={logo} className="navbar__logo" alt='Blue and Green robmove logo'/></Link>
        <ul className='navbar__links'>
         <li className='navbar__links-item'><Link className="item" to="/view">View Properties</Link></li>
-        <li className='navbar__links-item'><Link className="item" to="/add">Add Properties</Link></li>
+        <li className='navbar__links-item'><Link className="item" to="/add">Add Property</Link></li>
        </ul>
     </div>
   )

@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import "../styles/app.css";
 import NavBar from "./NavBar";
 import ViewProperties from "./ViewProperties";
-import AddProperties from "./AddProperties";
+import AddProperty from "./AddProperty";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/view" element={<ViewProperties />} />
-        <Route path="/add" element={<AddProperties />} />
+        <Route path="/add" element={<AddProperty />} />
       </Routes>
     </div>
   );
