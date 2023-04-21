@@ -1,4 +1,54 @@
 .add-property {
-    background-color: blue;
-    padding: 40px;
+background: rgba(255, 255, 255, 0.3);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+margin: auto;
+margin-top: 200px;
+width: 60%;
+display: flex;
+justify-content: center;
+align-content: center;
+flex-wrap: wrap;
+padding: 50px 20px;
 }
+
+input::placeholder {
+    text-align: center;
+  }
+  
+
+.add-property label,
+.add-property input,
+.add-property select {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.add-property label {
+    margin-top: 20px;
+}
+
+.add-property input {
+    width: 100%;
+}
+
+button {
+    background-color: rgb(53, 155, 53);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
