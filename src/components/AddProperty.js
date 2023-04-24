@@ -66,7 +66,6 @@ const AddProperty = () => {
           value={fields.title}
           onChange={handleFieldChange}
           placeholder="Name of property"
-          required
         />
 
         <label htmlFor="city">City:</label>
@@ -106,7 +105,6 @@ const AddProperty = () => {
           value={fields.bedrooms}
           onChange={handleFieldChange}
           placeholder="Number of bedrooms"
-          required
         />
 
         <label htmlFor="bathrooms">Bathrooms:</label>
@@ -117,7 +115,6 @@ const AddProperty = () => {
           value={fields.bathrooms}
           onChange={handleFieldChange}
           placeholder="Number of bathrooms"
-          required
         />
 
         <label htmlFor="price">Price:</label>
@@ -138,7 +135,6 @@ const AddProperty = () => {
           value={fields.email}
           onChange={handleFieldChange}
           placeholder="john.smith@email.co.uk"
-          required
         />
 
         <button type="submit">Add</button>
