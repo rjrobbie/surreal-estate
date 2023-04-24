@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "../styles/add-property.css";
-import { eventWrapper } from "@testing-library/user-event/dist/utils";
+import Alert from "./Alert";
 
 const AddProperty = () => {
   const initialState = {
@@ -13,13 +14,34 @@ const AddProperty = () => {
       price: "",
       email: "",
     },
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
   };
 
   const [fields, setFields] = useState(initialState.fields);
 
+  const [alert, setAlert] = useState(initialState.alert);
+
   const handleAddProperty = (event) => {
     event.preventDefault();
-    console.log(fields);
+    setAlert({ message: "", isSuccess: false });
+
+    axios
+      .post("http://localhost:4000/api/v1/propertyListing", fields)
+      .then(() => {
+        setAlert({
+          message: "Property Added",
+          isSuccess: true,
+        });
+      })
+      .catch(() => {
+        setAlert({
+          message: "Server error. Please try again later.",
+          isSuccess: false,
+        });
+      });
   };
 
   const handleFieldChange = (event) => {
@@ -32,7 +54,10 @@ const AddProperty = () => {
 
   return (
     <div className="add-property">
+      <Alert message={alert.message} success={alert.isSuccess} />
+
       <form onSubmit={handleAddProperty}>
+        <Alert />
         <label htmlFor="title">Title:</label>
         <input
           type="text"
@@ -41,10 +66,16 @@ const AddProperty = () => {
           value={fields.title}
           onChange={handleFieldChange}
           placeholder="Name of property"
+          required
         />
 
         <label htmlFor="city">City:</label>
-        <select id="city" name="city" value={fields.city} onChange={handleFieldChange}>
+        <select
+          id="city"
+          name="city"
+          value={fields.city}
+          onChange={handleFieldChange}
+        >
           <option value="Manchester">Manchester</option>
           <option value="London">London</option>
           <option value="Liverpool">Liverpool</option>
@@ -52,7 +83,12 @@ const AddProperty = () => {
         </select>
 
         <label htmlFor="type">Type:</label>
-        <select id="type" name="type" value={fields.type} onChange={handleFieldChange}>
+        <select
+          id="type"
+          name="type"
+          value={fields.type}
+          onChange={handleFieldChange}
+        >
           <option value="Flat">Flat</option>
           <option value="Detached">Detached</option>
           <option value="Semi-Detached">Semi-Detached</option>
@@ -70,6 +106,7 @@ const AddProperty = () => {
           value={fields.bedrooms}
           onChange={handleFieldChange}
           placeholder="Number of bedrooms"
+          required
         />
 
         <label htmlFor="bathrooms">Bathrooms:</label>
@@ -80,6 +117,7 @@ const AddProperty = () => {
           value={fields.bathrooms}
           onChange={handleFieldChange}
           placeholder="Number of bathrooms"
+          required
         />
 
         <label htmlFor="price">Price:</label>
@@ -100,6 +138,7 @@ const AddProperty = () => {
           value={fields.email}
           onChange={handleFieldChange}
           placeholder="john.smith@email.co.uk"
+          required
         />
 
         <button type="submit">Add</button>
